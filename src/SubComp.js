@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Loadable from "react-loadable";
 import "./App.css";
 const LazyCounter = Loadable({
-  loader: () => import("./Test.purs"),
+  loader: () => import("./LazyCounter.purs"),
   loading: () => <div>Loading...</div>,
   render(loaded, props) {
     let Component = loaded.component;

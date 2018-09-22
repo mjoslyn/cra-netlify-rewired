@@ -1,10 +1,13 @@
-module Counter where
+module LazyCounter where
 
 import Prelude
 
 import React.Basic as React
 import React.Basic.DOM as R
 import React.Basic.Events as Events
+import Emotion as E
+
+
 
 -- The props for the component
 type Props =
@@ -26,7 +29,10 @@ component = React.component { displayName: "Counter", initialState, receiveProps
 
     render { props, state, setState } =
       R.button
-        { onClick: Events.handler_ do
+        { 
+          className: E.css({ display:"flex", border: "1px solid red"}),
+          onClick: Events.handler_ do
             setState \s -> s { counter = s.counter + 1 }
-        , children: [ R.text (props.label <> ": " <> show state.counter) ]
+        , children: [ R.text (props.label <> ": " <> show state.counter)
+                    ]
         }
