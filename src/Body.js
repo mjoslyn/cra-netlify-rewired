@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-class App extends Component {
+class Test extends Component {
   render() {
-    return <p className="App-intro">THis is another body</p>;
+    return <p className="App-intro">This is some test</p>;
   }
 }
 
-export default App;
+export default Test;

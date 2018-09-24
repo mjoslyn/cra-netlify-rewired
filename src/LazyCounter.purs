@@ -6,6 +6,7 @@ import React.Basic as React
 import React.Basic.DOM as R
 import React.Basic.Events as Events
 import Emotion as E
+import Test as T
 
 
 
@@ -28,11 +29,17 @@ component = React.component { displayName: "Counter", initialState, receiveProps
       pure unit
 
     render { props, state, setState } =
-      R.button
-        { 
-          className: E.css({ display:"flex", border: "1px solid red"}),
-          onClick: Events.handler_ do
-            setState \s -> s { counter = s.counter + 1 }
-        , children: [ R.text (props.label <> ": " <> show state.counter)
-                    ]
-        }
+      R.div {
+        children:[
+          R.button
+            { 
+              className: E.css({ display:"flex", border: "1px solid red"}),
+              onClick: Events.handler_ do
+                setState \s -> s { counter = s.counter + 1 }
+            , children: [ R.text (props.label <> ": " <> show state.counter)
+                        ]
+            },
+          React.element T.test { name: "a lazy loaded counter"}
+          ]
+      }
+      
