@@ -8,3 +8,4 @@
 /.purs*
 /.psa*
 /build/
+yarn-error.log
